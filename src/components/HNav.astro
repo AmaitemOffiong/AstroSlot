@@ -1,0 +1,96 @@
+---
+const links = ["Home", "About", "Gallery", "Contact"];
+
+//create opbjects variable 
+// const navData = [{}, {}, {}, {}];
+
+const navData = [
+{
+    href: "/",
+    text: "Home",
+    divder: "|",
+},
+
+{
+    href: "/about/",
+    text: "About",
+    divder: "|",
+},
+
+{
+    href: "/gallery/",
+    text: "Gallery",
+    divder: "|",
+},
+
+{
+    href: "/markdown/",
+    text: "Markdown",
+    divder: "",
+},
+
+];
+---
+<!-- <nav>
+    <a href="/">Home</a> | 
+     <a href="/about/">About</a> | 
+     <a href="/gallery/">Gallery</a> | 
+</nav> -->
+
+<!-- <nav>
+    <ul>
+       
+        {links.map( (link) => <li> {link} </li> )}
+    </ul>
+</nav> -->
+<nav>
+    <ul>
+       {
+        navData.map((item) => (
+            <>
+            <li>
+                <a href={item.href}> 
+                    {item.text}  
+                    </a>  
+                    </li>
+             <spand class="divider">   {item.divder}</spand>
+              
+                </>
+         ))
+       };
+    </ul>
+    </nav>
+
+
+<style>
+    /* Mobile First  */
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+        background-color:white;
+    }
+
+    li 
+    {
+        background-color:none;
+        padding:0 0.5rem;
+    }
+
+    span.divder {
+        display: none;
+    }
+
+    /* Tablet to Desktop */
+    @media screen and (max-width: 600px) {
+        ul {
+          flex-direction: row;
+        }
+        
+            span.divder {
+                display: inline;
+            }
+    }
+</style>
